@@ -19,4 +19,5 @@ max_range = .85 *max_rate
 #Outputs slowest and fastest rates
 print(f"Your ideal heartrate range is between {min_range:.0f} BPM and {max_range:.0f} BPM ")
 
-
+# Tuples are unchangable and easier to store, lists can be modified
+# Don't use dumb comments, answer the question why in the comment
