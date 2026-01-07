@@ -21,3 +21,6 @@ print(f"Your ideal heartrate range is between {min_range:.0f} BPM and {max_range
 
 # Tuples are unchangable and easier to store, lists can be modified
 # Don't use dumb comments, answer the question why in the comment
+# To add to list use append
+
+
