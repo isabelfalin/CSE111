@@ -15,19 +15,20 @@ sales_tax = None
 #create loop that keeps asking for the subtotal
 subtotal = float(input("Please enter the subtotal: "))
 
-if subtotal >= 50 and day_of_week == 1 or 2:
+if subtotal >= 50 and day_of_week == 1 or day_of_week == 2:
     discount = (.1 * subtotal)
     subtotal = (subtotal - discount )
     sales_tax = (.06 * subtotal)
     total = (sales_tax + subtotal)
 
-    print(f"Discount amount: {discount:.2f}")
-    print(f"Sales tax amount: {sales_tax:.2f}")
-    print(f"Total: {total:.2f}")
+    print(f"Discount amount: {discount:.02f}")
+    print(f"Sales tax amount: {sales_tax:.02f}")
+    print(f"Total: {total:.02f}")
     
 else:
+    sales_tax = (.06 * subtotal)
     total = (sales_tax * subtotal)
-    print(f"Sales tax amount: {sales_tax:.2f}")
-    print(f"Total: {total:.2f}")
+    print(f"Sales tax amount: {sales_tax:.02f}")
+    print(f"Total: {total:.02f}")
 
 
