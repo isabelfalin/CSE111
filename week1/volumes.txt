@@ -1,0 +1,8 @@
+values[
+    "{current_date_and_time}"
+    "{day_of_week}"
+    "{width}",
+    "{aspect_ratio}",
+    "{diameter}",
+    "{volume}"
+]

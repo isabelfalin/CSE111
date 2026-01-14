@@ -19,3 +19,19 @@ no_parenthesis = (math.pi * width ** 2 * aspect_ratio)
 volume = (no_parenthesis * within_parenthesis / 10000000000)
 
 print(f"The approximate volume is {volume:.02f} liters. ")
+
+from datetime import datetime
+
+current_date_and_time = datetime.now()
+day_of_week = current_date_and_time.weekday()
+
+
+"""Gets the current date from the computer’s operating system.
+Opens a text file named volumes.txt for appending.
+Appends to the end of the volumes.txt file one line of text that contains the 
+following five values:
+1. current date
+2. width of the tire
+3. spect ratio of the tire
+4. diameter of the wheel
+5. volume of the tire"""
