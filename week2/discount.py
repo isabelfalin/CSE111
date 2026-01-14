@@ -30,8 +30,9 @@ while price != 0:
     quantity = int(input("Please enter the quantity of item: "))
     subtotal = (subtotal + (price * quantity))
 
+print()
 print(f"The subtotal of all your items is: ${subtotal}")
-
+print()
 
 if subtotal >= 50 and day_of_week == 1 or day_of_week == 2:
     discount = (.1 * subtotal)
