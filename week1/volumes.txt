@@ -1,8 +1,1 @@
-values[
-    "{current_date_and_time}"
-    "{day_of_week}"
-    "{width}",
-    "{aspect_ratio}",
-    "{diameter}",
-    "{volume}"
-]
+2026-01-14, 185.0, 50.0, 14.0, 24.09
