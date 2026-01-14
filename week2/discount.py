@@ -31,10 +31,10 @@ while price != 0:
     subtotal = (subtotal + (price * quantity))
 
 print()
-print(f"The subtotal of all your items is: ${subtotal}")
+print(f"The subtotal of all your items is: ${subtotal:.02f}")
 print()
 
-if subtotal >= 50 and day_of_week == 1 or day_of_week == 2:
+if subtotal >= 50 and (day_of_week == 1 or day_of_week == 2):
     discount = (.1 * subtotal)
     subtotal = (subtotal - discount )
     sales_tax = (.06 * subtotal)
