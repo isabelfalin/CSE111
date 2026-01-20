@@ -19,6 +19,7 @@ def main():
     age = compute_age(birthdate)
     kg = kg_from_lb(weight)
     cm = cm_from_in(height)
+    m = m_from_in(height)
 
     # body_mass_index, and basal_metabolic_rate functions
     BMI = body_mass_index(kg, cm)
@@ -37,6 +38,7 @@ Basal metabolic rate (kcal/day): 1315"""
     print(f"Age (years): {age}")
     print(f"Weight (kg): {kg:.2f}")
     print(f"Height (cm): {cm:.1f}")
+    print(f"Height (m): {m:.1f}")
     print(f"Body mass index: {BMI:.1f}")
     print(f"Basal metabolic rate (kcal/day): {BMR:.0f}")
     pass
@@ -87,6 +89,16 @@ def cm_from_in(inches):
 
     cm = inches * 2.54
     return cm
+
+def m_from_in(inches):
+    """Convert a length in inches to meters.
+    Parameter inches: a length in inches.
+    Return: the length in meters.
+    """
+    #1 in = 2.54 cm
+
+    m = inches * .0254
+    return m
 
 
 def body_mass_index(weight, height):
