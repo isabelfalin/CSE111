@@ -1,3 +1,12 @@
+def water_column_height():
+    #what do i put here??
+    #do i need to define evry single one? (tower gheith and tank height?)
+    #or are they already defined in the test_water_flower one?
+
+
+
+
+
 def water_column_height(tower_height, tank_height):
     h = water_column_height
     t = tower_height
