@@ -39,7 +39,7 @@ def main():
 
     print("1. I feel that I am a person of worth, at least on an equal plane with others.")
     answer = input("Enter D, d, a, or A: ")
-    total_score = total_score + get_score(2, answer)
+    total_score = total_score + get_score(1, answer)
 
     print("2. I feel that I have a number of good qualities")
     answer = input("Enter D, d, a, or A: ")
