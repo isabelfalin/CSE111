@@ -81,6 +81,7 @@ def main():
 
     # Call the count_genders function to count
     # and print the number of males and females.
+    print("Genders")
     count_genders(people_dict)
 
     # Print a blank line.
@@ -88,6 +89,7 @@ def main():
 
     # Call the print_marriages function to print
     # human readable data about the marriages.
+    print("Marriages")
     print_marriages(marriages_dict, people_dict)
 
 
@@ -118,7 +120,20 @@ def count_genders(people_dict):
             person_key: [name, gender, birth_year, death_year]
     Return: nothing
     """
-    pass
+    number_males = 0
+    number_females = 0 
+
+    for identifier in people_dict:
+        person = people_dict[identifier]
+        gender = person[GENDER_INDEX]
+        if gender == "M":
+            number_males = number_males + 1
+        else:
+            number_females = number_females + 1
+    
+    print(f"Number of males: {number_males}")
+    print(f"Number of Females: {number_females}")
+
 
 def print_marriages(marriages_dict, people_dict):
     """For each marriage in the marriages dictionary, print
@@ -134,7 +149,23 @@ def print_marriages(marriages_dict, people_dict):
             person_key: [name, gender, birth_year, death_year]
     Return: nothing
     """
-    pass
+    for idefntifier in marriages_dict:
+        marriage = marriages_dict[idefntifier]
+        husband = marriage[HUSBAND_KEY_INDEX]
+        wife = marriage[WIFE_KEY_INDEX]
+        year = marriage[WEDDING_YEAR_INDEX]
+
+
+        husband_profile = people_dict[husband]
+        wife_profile = people_dict[wife]
+
+        husband_age = husband_profile[DEATH_YEAR_INDEX] - husband_profile[BIRTH_YEAR_INDEX]
+        husband_name = husband_profile[NAME_INDEX]
+
+        wife_age = wife_profile[DEATH_YEAR_INDEX] - wife_profile[BIRTH_YEAR_INDEX]
+        wife_name = wife_profile[NAME_INDEX]
+
+        print(f"{husband_name} {husband_age} > {year} < {wife_name} {wife_age}")
 
 
 # If this file was executed like this:
