@@ -1,18 +1,22 @@
 import csv
-i_number_index = 0 
+#request dicionary
+PRODUCT_NUMBER_INDEX = 0
+QUANTITY_INDEX = 1
+
+#products dictionary
+PRODUCT_INDEX = 0
+NAME_INDEX = 1
+PRICE_INDEX = 2
 
 def main():
-    # Index of the phone number column
-    # in the dentists.csv file.
+    products_dict = read_dictionary("products.csv", PRODUCT_INDEX)
 
-    # Read the contents of the dentists.csv into a
-    # compound dictionary named dentists_dict. Use
-    # the phone numbers as the keys in the dictionary.
-    students_dict = read_dictionary("students.csv", i_number_index)
-
-    # Print the dentists compound dictionary.
-    find_student(students_dict)
-
+    # Print the product compound dictionary.
+    print("All Products: ")
+    print(products_dict)
+    print() 
+    print("Requested Items:")
+    process_request("request.csv", products_dict)
 
 def read_dictionary(filename, key_column_index):
     """Read the contents of a CSV file into a compound
@@ -58,27 +62,37 @@ def read_dictionary(filename, key_column_index):
                 # row into the dictionary.
                 dictionary[key] = row_list
 
-        
-
     # Return the dictionary.
     return dictionary
 
-def find_student(students_dict):
-    """Get an I-Number from the user, verify the I-Number is
-    valid, and find and print the student with that I-Number."""
-    I_NUMBER = input("What is the I number? ")
+def process_request(filename, products_dict):
+    with open(filename, "rt") as csv_file:
 
-    if I_NUMBER in students_dict:
+        # Use the csv module to create a reader object
+        # that will read from the opened CSV file.
+        reader = csv.reader(csv_file)
 
-        # Find the student ID in the dictionary and
-        # retrieve the corresponding student name.
-        student = students_dict[I_NUMBER]
-        name = student[1]
+        # The first row of the CSV file contains column
+        # headings and not data, so this statement skips
+        # the first row of the CSV file.
+        next(reader)
 
-        print(name)
-    
-    else:
-        print("They don't exist")
+        # Read the rows in the CSV file one row at a time.
+        # The reader object returns each row as a list.
+        for row_list in reader:
+
+            # If the current row is not blank, add the
+            # data from the current to the dictionary.
+            if len(row_list) != 0:
+                product_number = row_list[PRODUCT_NUMBER_INDEX]
+                quantity = row_list[QUANTITY_INDEX]
+                product = products_dict[product_number]
+
+                name = product[NAME_INDEX]
+                price = product[PRICE_INDEX]
+
+                
+                print(f"{name}: {quantity} @ {price}")
 
 # Call main to start this program.
 if __name__ == "__main__":
