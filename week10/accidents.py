@@ -17,43 +17,64 @@ FATIGUE_COLUMN = 9
 
 
 def main():
-    # Prompt the user for a filename and open that text file.
-    filename = input("Name of file that contains NHTSA data: ")
-    with open(filename, "rt") as text_file:
+    try:
+        # Prompt the user for a filename and open that text file.
+        filename = input("Name of file that contains NHTSA data: ")
+        with open(filename, "rt") as text_file:
 
-        # Prompt the user for a percentage.
-        perc_reduc = float(input(
-            "Percent reduction of texting while driving [0, 100]: "))
+            # Prompt the user for a percentage.
+            perc_reduc = float(input(
+                "Percent reduction of texting while driving [0, 100]: "))
+            
+            if perc_reduc < 0 or perc_reduc > 100:
+                raise ValueError("Number must be between 0 and 100.")
 
+            print()
+            print(f"With a {perc_reduc}% reduction in using a cell",
+                "phone while driving, approximately the",
+                "following number of injuries and deaths",
+                "would have been prevented in the USA.", sep="\n")
+            print()
+            print("Year, Injuries, Deaths")
+
+            # Use the csv module to create a reader
+            # object that will read from the opened file.
+            reader = csv.reader(text_file, strict=True)
+
+            # The first line of the CSV file contains column
+            # headings and not data about accidents so this
+            # statement skips the first line of the CSV file.
+            next(reader)
+
+            # Process each row in the CSV file.
+            for row in reader:
+                year = row[YEAR_COLUMN]
+
+                # Call the estimate_reduction function.
+                injur, fatal = estimate_reduction(
+                        row, PHONE_COLUMN, perc_reduc)
+
+                # Print the estimated reductions
+                # in injuries and fatalities.
+                print(year, injur, fatal, sep=", ")
+    except FileNotFoundError as not_found_err:
+        # This code will be executed if the user enters
+        # the name of a file that doesn't exist.
         print()
-        print(f"With a {perc_reduc}% reduction in using a cell",
-            "phone while driving, approximately the",
-            "following number of injuries and deaths",
-            "would have been prevented in the USA.", sep="\n")
+        print(type(not_found_err).__name__, not_found_err, sep=": ")
+        print(f"The file {filename} doesn't exist.")
+        print("Run the program again and enter the" \
+                " name of an existing file.")
+    except ValueError as val_err:
         print()
-        print("Year, Injuries, Deaths")
+        print(type(val_err).__name__, val_err, sep=": ")
+        print("You did not enter a valid percentage amount.")
+        print("Run the program again and enter a valid percentage.")
 
-        # Use the csv module to create a reader
-        # object that will read from the opened file.
-        reader = csv.reader(text_file, strict=True)
-
-        # The first line of the CSV file contains column
-        # headings and not data about accidents so this
-        # statement skips the first line of the CSV file.
-        next(reader)
-
-        # Process each row in the CSV file.
-        for row in reader:
-            year = row[YEAR_COLUMN]
-
-            # Call the estimate_reduction function.
-            injur, fatal = estimate_reduction(
-                    row, PHONE_COLUMN, perc_reduc)
-
-            # Print the estimated reductions
-            # in injuries and fatalities.
-            print(year, injur, fatal, sep=", ")
-
+    except csv.Error as file_err:
+        print()
+        print(type(file_err).__name__, file_err, sep=": ")
+        print(f"{filename} {reader.line_num} is formatted incorrectly.")
 
 def estimate_reduction(row, behavior_key, perc_reduc):
     """Estimate and return the number of injuries and deaths that
