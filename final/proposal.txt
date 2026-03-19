@@ -9,19 +9,44 @@ CSE 111 Proposal for a Student Chosen Program
     answer each of the following questions to the best of your
     knowledge.)
 
+WORK ON BUS
+- write list for players name, UTR ranking, Gender
+- write list for tournaments (have name, minimum utr, gender, and date)
+- write program by defining each function and organzing them (write pass under
+each with a description of what it will do)
+
 1. What is the title of your program?
+The Big T's Tennis Tracker
 
 2. What real-world problem will your program address or help to solve?
 
+My program will be a tennis player management system. Depending on what the user
+selects it can either calcualte the average UTR rank of all players, show the 
+stats for an individual player, or show players that qualify for
+a tournament based on their UTR rank and give them the date of when
+and which tournament it is. (I'll use the random module to select a random 
+tournament from a list)
+
 3. What will you learn from developing this program?
 
+I will reinforce the skills i've learned during this semester of working with 
+files, analyzing data, and collecting / acting on suer input. I will also reinforce 
+my knowledge of using exception handling.
+
 4. What Python modules will your program use?
+
+csv, pytest, math, datetime, random 
 
     (Some examples are: csv, datetime, functools, matplotlib, math,
     pandas, pytest, random, requests, and tkinter.)
 
 5. Will you separate your Python program into functions that each
 perform a single task?
+
+Yes
+main() load_players(file_name) display_menu() get_menu_choice() calculate_UTR(players_list)
+show_player_stats(players_list) choose_random_tournament(tournament_list) get_qualifying_players(tournament) 
+display_tournament_info(tournament) 
 
     (Remember that the most reusable functions don't get user input and
     don't print results but instead have parameters and return a result.
@@ -36,4 +61,8 @@ perform a single task?
 
 6. Will you write test functions to test at least two of your program
 functions?
+
+Yes
+test_load_players() test_calculate_UTR() test_get_qualifying_players() 
+
 
