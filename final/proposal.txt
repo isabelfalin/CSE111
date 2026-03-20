@@ -10,8 +10,6 @@ CSE 111 Proposal for a Student Chosen Program
     knowledge.)
 
 WORK ON BUS
-- write list for players name, UTR ranking, Gender
-- write list for tournaments (have name, minimum utr, gender, and date)
 - write program by defining each function and organzing them (write pass under
 each with a description of what it will do)
 
@@ -25,7 +23,7 @@ selects it can either calcualte the average UTR rank of all players, show the
 stats for an individual player, or show players that qualify for
 a tournament based on their UTR rank and give them the date of when
 and which tournament it is. (I'll use the random module to select a random 
-tournament from a list)
+tournament from a list) It will then calculate how many days until the tournament.
 
 3. What will you learn from developing this program?
 
