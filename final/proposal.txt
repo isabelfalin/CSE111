@@ -12,6 +12,7 @@ CSE 111 Proposal for a Student Chosen Program
 WORK ON BUS
 - write program by defining each function and organzing them (write pass under
 each with a description of what it will do)
+- the process of thinking is more important than an actual working program
 
 1. What is the title of your program?
 The Big T's Tennis Tracker
