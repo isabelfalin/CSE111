@@ -35,6 +35,7 @@ def main():
  
         elif user_choice.upper() == "C":
             get_qualified_tournaments(tournamnet_list)
+            print()
     
     print("Thank you for using The Big T's Tennis Tracker!")
 
@@ -86,6 +87,7 @@ def load_tournaments(file_name):
     
 
 def display_menu():
+    print()
     print("Welcome to The Big T's Tennis Tracker! ")
     print()
     print("Please chose an option below:")
