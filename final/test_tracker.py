@@ -14,10 +14,10 @@ def test_calculate_UTR():
 
 def test_does_player_qualify_for_tournament():
     player = ["alex","boye",13.5,"Male"]
-    tournament = ["Italian Open",12.5,"Male","May 7"] 
+    tournament = ["Italian Open",12.5,"Male","May 7 2026"] 
 
     player2 = ["alex","boye",3,"Male"]
-    tournament2 = ["Italian Open",12.5, "Female","May 7"] 
+    tournament2 = ["Italian Open",12.5, "Female","May 72026 "] 
 
     #should not qualify cause of gender
     does_qualify = does_player_qualify_for_tournament(player, tournament2)

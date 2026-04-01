@@ -1,6 +1,5 @@
-import math, random, pytest
 import csv
-from datetime import datetime, timedelta
+from datetime import datetime
 
 #Players list
 PLAYER_FIRST_NAME = 0
