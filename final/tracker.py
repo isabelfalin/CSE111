@@ -10,9 +10,9 @@ GENDER = 3
 
 #tournament list
 TOURNAMENT_NAME = 0
-MINIMUM_UTR = 1
+TOURNAMENT_MINIMUM_UTR = 1
 TOURNAMENT_GENDER = 2
-DATE = 3
+TOURNAMENT_DATE = 3
 
 def main():
     #load the data
@@ -23,18 +23,18 @@ def main():
     user_choice = None
     while user_choice != "Q":
         display_menu()
-        user_choice = get_menu_choice()
+        user_choice = get_menu_choice().upper()
 
         #handle user choice
-        if user_choice.upper() == "A":
+        if user_choice == "A":
            average_utr = calculate_UTR(players_list) 
            print(f"The average UTR is: {average_utr:.1f}")
 
-        elif user_choice.upper() == "B":
+        elif user_choice == "B":
             show_player_stats(players_list)
  
-        elif user_choice.upper() == "C":
-            get_qualified_tournaments(tournamnet_list)
+        elif user_choice == "C":
+            get_qualified_players_for_tournaments(tournamnet_list, players_list)
             print()
     
     print("Thank you for using The Big T's Tennis Tracker!")
@@ -117,11 +117,28 @@ def show_player_stats(players_list):
         player_gender = player[GENDER]
         print(f"{player_last_name.capitalize()}, {player_first_name.capitalize()}: {player_gender} - {player_utr_ranking}")
 
-def get_qualified_tournaments(tournament_list):
-    pass
+def get_qualified_players_for_tournaments(tournament_list, player_list):
+    for tournament in tournament_list:
+        tournament_name = tournament[TOURNAMENT_NAME]
+        tournament_date = tournament[TOURNAMENT_DATE]
+        print(f"\nThe {tournament_name} ({tournament_date}) Qualifying Players:\n")
+        for player in player_list:
+            player_first_name = player[PLAYER_FIRST_NAME]
+            player_last_name = player[PLAYER_LAST_NAME]
 
-def display_tournament_info(tournament):
-    pass
+            if does_player_qualify_for_tournament(player, tournament):
+                print(f"\t{player_first_name.capitalize()} {player_last_name.capitalize()}")
+    
+def does_player_qualify_for_tournament(player, tournament):
+    tournament_minimum_utr = float(tournament[TOURNAMENT_MINIMUM_UTR])
+    player_utr_ranking = float(player[UTR_RANKING])
+    player_gender = player[GENDER]
+    tournament_gender = tournament[TOURNAMENT_GENDER]
+
+    if player_utr_ranking >=  tournament_minimum_utr and player_gender == tournament_gender:
+        return True
+    else:
+        return False
 
 if __name__ == "__main__":
     main()
