@@ -12,6 +12,10 @@ def test_calculate_UTR():
     average_utr = calculate_UTR(players_list) 
     assert average_utr == approx(11.0, abs=0.1)
 
+    player_fake = ("manny", "loot", 0, "Male")
+    average_utr = calculate_UTR([player_fake])
+    assert average_utr == 0
+
 def test_does_player_qualify_for_tournament():
     player = ["alex","boye",13.5,"Male"]
     tournament = ["Italian Open",12.5,"Male","May 7 2026"] 
