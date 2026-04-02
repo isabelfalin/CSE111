@@ -1,0 +1,22 @@
+Please respond thoroughly (at least two sentences for each question) to
+the following three questions.
+
+1. Describe an experience you had this semester where you saw the power of
+functions.
+
+When i created my provinces program and had to use functions to do certain 
+tasks repeatedly. It made the process of coding and running the code a lot easier.
+
+2. In your judgment, what is the value of test functions?
+
+To double check that the program isn't just producing the correct result but is
+getting to the correct result in the right way.
+
+3. Describe your process for troubleshooting and fixing a program that
+has a problem. What is one thing you can do to improve your process?
+
+I look at the program and i look at where the error message says it is broken and
+then I try to identify what i can do to fix the issue. 
+I can definetly use the step over and debugging tools within VScode to help me do
+this process faster.
+
