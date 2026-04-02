@@ -120,7 +120,10 @@ def get_qualified_players_for_tournaments(tournament_list, player_list):
     for tournament in tournament_list:
         tournament_name = tournament[TOURNAMENT_NAME]
         tournament_date = tournament[TOURNAMENT_DATE]
-        print(f"\nThe {tournament_name} ({tournament_date}) Qualifying Players:\n")
+        date_object = datetime.strptime(tournament_date, "%b %d %Y" )
+        nice_date = date_object.strftime("%B %d, %Y")
+        
+        print(f"\nThe {tournament_name} ({nice_date}) Qualifying Players:\n")
         for player in player_list:
             player_first_name = player[PLAYER_FIRST_NAME]
             player_last_name = player[PLAYER_LAST_NAME]
